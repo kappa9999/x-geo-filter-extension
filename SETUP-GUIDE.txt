@@ -1,33 +1,64 @@
-X GEO FILTER GUARD - QUICK SETUP (NON-TECHNICAL)
+X GEO FILTER GUARD - SIMPLE SETUP (NON-TECHNICAL)
 
-1) Download
-- Open: https://github.com/kappa9999/x-geo-filter-extension/releases/latest
-- Download: x-geo-filter-extension-v0.2.1.zip
+Purpose:
+Filter bot/spam-like accounts by country/region on X.
 
-2) Unzip
-- Double-click the zip file
-- You should see a folder named: x-geo-filter-extension
+You can choose:
+- Hide posts only
+- Auto mute matching accounts
+- Auto block matching accounts
 
-3) Install in Chrome
-- Open Chrome
-- Go to: chrome://extensions
-- Turn ON Developer mode (top-right)
-- Click: Load unpacked
-- Select folder: x-geo-filter-extension
+------------------------------------
+1) DOWNLOAD
+------------------------------------
+Open:
+https://github.com/kappa9999/x-geo-filter-extension/releases/latest
 
-4) Basic setup
-- Click extension icon > Open settings
-- Add one include rule, for example: india
-- Set Post behavior: Dim
-- Set Auto action: None
-- Turn Dry run: On
-- Click Save settings
+Download:
+x-geo-filter-extension-v0.2.1.zip
 
-5) Use
-- Open x.com
-- Refresh page and scroll
+Unzip it.
 
-If you install an update later:
-- Replace the old folder with the new one
-- Go to chrome://extensions
-- Click Reload on X Geo Filter Guard
+------------------------------------
+2) INSTALL IN CHROME
+------------------------------------
+1. Open Chrome
+2. Go to: chrome://extensions
+3. Turn ON Developer mode (top-right)
+4. Click Load unpacked
+5. Select folder: x-geo-filter-extension
+
+------------------------------------
+3) BASIC CONFIG
+------------------------------------
+1. Click extension icon
+2. Click Open settings
+3. In Include rules, type a country (example: india)
+
+Now choose your mode:
+
+MODE A (Hide only):
+- Post behavior = Hide (or Dim)
+- Auto action = None
+
+MODE B (Mute matching accounts):
+- Auto action = Mute
+- Dry run = On first
+
+MODE C (Block matching accounts):
+- Auto action = Block
+- Dry run = On first
+- Max actions/hour = 1 or 2
+- Delay = 3000ms
+- Sightings = 2
+
+4. Click Save settings
+5. Open x.com and scroll feed
+
+------------------------------------
+4) EMERGENCY STOP
+------------------------------------
+Use popup to:
+- Disable extension
+- Set action to None
+- Pause 30 minutes

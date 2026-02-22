@@ -1,92 +1,113 @@
 # X Geo Filter Guard
 
-A Chrome extension for X (x.com / twitter.com) that lets you filter posts by account location signals.
+Simple Chrome extension for X (x.com / twitter.com) focused on **bot/spam account prevention by region**.
 
-This repo is intentionally simple for non-technical users.
+You can choose one of 3 behaviors for accounts that match your country/region rules:
 
-## Download (Easy)
+1. **Hide posts** (do not block or mute)
+2. **Auto mute accounts**
+3. **Auto block accounts**
 
-1. Open the latest release:
+---
+
+## What this is for
+
+If your feed gets flooded by low-quality, spam, or bot-like accounts from specific regions, this extension lets you filter aggressively.
+
+Examples:
+- Hide every post from accounts based in a target country
+- Auto mute every matching account from a target country
+- Auto block every matching account from a target country
+
+---
+
+## Download
+
+1. Open latest release:
    - https://github.com/kappa9999/x-geo-filter-extension/releases/latest
-2. Download this file:
+2. Download:
    - `x-geo-filter-extension-v0.2.1.zip`
-3. Unzip it.
+3. Unzip it (you should get folder `x-geo-filter-extension`)
 
-You will get a folder named `x-geo-filter-extension`.
+---
 
-## Install in Chrome (Step-by-step)
+## Install in Chrome (easy)
 
-1. Open Chrome.
-2. In the address bar, go to:
-   - `chrome://extensions`
-3. Turn on **Developer mode** (top-right switch).
-4. Click **Load unpacked**.
-5. Select the unzipped `x-geo-filter-extension` folder.
-6. Done.
+1. Open Chrome
+2. Go to `chrome://extensions`
+3. Turn ON **Developer mode** (top-right)
+4. Click **Load unpacked**
+5. Select the unzipped `x-geo-filter-extension` folder
 
-If you update later:
-- Download the new zip
-- Replace old folder
-- Go to `chrome://extensions`
-- Click **Reload** on the extension
+Done.
 
-## First-time setup (safe defaults)
+---
 
-1. Click the extension icon.
-2. Click **Open settings**.
-3. Add your include rule(s), one per line, for example:
-   - `india`
-   - `nigeria`
-4. Set:
-   - **Post behavior** = `Dim` (or `Hide`)
-   - **Auto action** = `None`
-   - **Dry run** = `On`
-5. Click **Save settings**.
+## Retard-proof setup guide (non-technical)
 
-Now open X and scroll your feed.
+After install:
 
-## Common modes
+1. Click the extension icon
+2. Click **Open settings**
+3. In **Include rules**, type one country per line (example: `india`)
+4. Pick your mode:
 
-### Hide/Dim only (no blocking)
-- Post behavior: `Hide` or `Dim`
+### Mode A: Hide only (no account action)
+- Post behavior: `Hide` (or `Dim`)
 - Auto action: `None`
 
-### Auto-block by region (careful)
-Start safe first:
+Result: matched posts disappear (or dim), but users are not muted/blocked.
+
+### Mode B: Mute every matching account
+- Post behavior: `Hide` or `Dim`
+- Auto action: `Mute`
+- Dry run: `On` first, then `Off` after testing
+
+Result: matching accounts are automatically muted.
+
+### Mode C: Block every matching account
+- Post behavior: `Hide` or `None`
 - Auto action: `Block`
-- Dry run: `On`
-- Max actions/hour: `1` to `2`
-- Delay: `3000ms`
-- Sightings before action: `2`
+- Dry run: `On` first, then `Off` after testing
+- Recommended safety: max actions/hour `1-2`, delay `3000ms`, sightings `2+`
 
-When behavior looks correct, turn Dry run off.
+Result: matching accounts are automatically blocked.
 
-## Quick stop buttons
+5. Click **Save settings**
+6. Refresh X and scroll
 
-From popup:
+---
+
+## Important: how matching works
+
+The extension checks account geography signals from account About data (not custom bio text when About data is available), then applies your rules.
+
+So if you put `india` in Include rules, it targets accounts whose About signals map to India.
+
+---
+
+## Emergency stop
+
+From popup, instantly:
 - Disable extension
 - Set Auto action to `None`
 - Pause for 30 minutes
 
-## How matching works
-
-The extension uses account About signals when available (not custom bio text):
-- Account based in
-- Connected via
-
-Then it applies your include/exclude rules.
+---
 
 ## Troubleshooting
 
-- Nothing happens:
+- No changes in feed:
   - Make sure extension is enabled
+  - Make sure Include rules are not empty
   - Reload X tab
-  - Check include rules are not empty
-- Still not working:
-  - Go to settings and click **Clear location cache**
+- Wrong/outdated matching:
+  - Open settings -> **Clear location cache**
   - Reload extension in `chrome://extensions`
-- UI changed on X:
-  - Auto mute/block may break if X changes menus
+- Auto mute/block not clicking:
+  - X UI may have changed; selector updates may be needed
+
+---
 
 ## License
 
