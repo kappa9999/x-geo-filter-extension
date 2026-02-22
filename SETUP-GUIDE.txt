@@ -1,68 +1,66 @@
-X GEO FILTER GUARD - SIMPLE SETUP (NON-TECHNICAL)
+X GEO FILTER GUARD - END-USER QUICK START
 
-Purpose:
-Filter bot/spam-like accounts by country/region on X.
+Goal:
+Filter feed noise on X by country/region, with optional auto-mute or auto-block.
 
-You can choose:
-- Hide posts only
+Available modes:
+- Hide/Dim posts only (no account action)
 - Auto mute matching accounts
 - Auto block matching accounts
 
-------------------------------------
+==================================================
 1) DOWNLOAD
-------------------------------------
+==================================================
 Open:
 https://github.com/kappa9999/x-geo-filter-extension/releases/latest
 
-Download:
-x-geo-filter-extension-v0.2.3.zip
+Download the ZIP release and unzip it.
 
-Unzip it.
-
-------------------------------------
+==================================================
 2) INSTALL IN CHROME
-------------------------------------
+==================================================
 1. Open Chrome
 2. Go to: chrome://extensions
-3. Turn ON Developer mode (top-right)
+3. Enable Developer mode (top-right)
 4. Click Load unpacked
 5. Select folder: x-geo-filter-extension
 
 Visual references:
-- Popup screenshot: docs/screenshots/popup.png
-- Settings screenshot: docs/screenshots/options-page.png
+- Popup: docs/screenshots/popup.png
+- Settings: docs/screenshots/options-page.png
 
-------------------------------------
-3) BASIC CONFIG
-------------------------------------
-1. Click extension icon
+==================================================
+3) CONFIGURE
+==================================================
+1. Open extension popup
 2. Click Open settings
-3. In Include rules, type a country (example: india)
+3. Add include rule(s), for example:
+   - india
 
-Now choose your mode:
+Choose a mode:
 
-MODE A (Hide only):
+MODE A - Hide/Dim only
 - Post behavior = Hide (or Dim)
 - Auto action = None
 
-MODE B (Mute matching accounts):
+MODE B - Auto mute
 - Auto action = Mute
 - Dry run = On first
 
-MODE C (Block matching accounts):
+MODE C - Auto block
 - Auto action = Block
 - Dry run = On first
 - Max actions/hour = 1 or 2
 - Delay = 3000ms
-- Sightings = 2
+- Sightings before action = 2
 
 4. Click Save settings
-5. Open x.com and scroll feed
+5. Refresh x.com and scroll your feed
 
-------------------------------------
+==================================================
 4) EMERGENCY STOP
-------------------------------------
-Use popup to:
+==================================================
+From popup:
 - Disable extension
-- Set action to None
+- Set Auto action to None
 - Pause 30 minutes
