@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>X Geo Filter Guard - Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero card">
+      <div>
+        <h1>X Geo Filter Guard</h1>
+        <p class="subtitle">Location-based filtering for X feed with optional auto-mute/auto-block.</p>
+      </div>
+      <div class="hero-actions">
+        <label class="switch-row"><input type="checkbox" id="enabled" /> Extension enabled</label>
+        <span id="statusBadge" class="badge">Active</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>1) Location rules</h2>
+      <p class="muted">Matching uses profile location text. Rule matching is case-insensitive contains (or word mode if enabled).</p>
+
+      <div class="grid-3">
+        <label class="stack">
+          Include rules (one per line)
+          <textarea id="includeRules" placeholder="india
+nigeria
+pakistan"></textarea>
+        </label>
+
+        <label class="stack">
+          Exclude rules (one per line)
+          <textarea id="excludeRules" placeholder="indiana
+west indies"></textarea>
+        </label>
+
+        <label class="stack">
+          Whitelist handles (one per line)
+          <textarea id="whitelistHandles" placeholder="jack
+elonmusk"></textarea>
+        </label>
+      </div>
+
+      <div class="preset-wrap">
+        <span class="muted tiny">Quick add:</span>
+        <button class="chip" data-rule="india">India</button>
+        <button class="chip" data-rule="pakistan">Pakistan</button>
+        <button class="chip" data-rule="nigeria">Nigeria</button>
+        <button class="chip" data-rule="philippines">Philippines</button>
+        <button class="chip" data-rule="indonesia">Indonesia</button>
+        <button class="chip" data-rule="vietnam">Vietnam</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2) Feed behavior</h2>
+      <div class="grid-2">
+        <label class="stack">
+          Post behavior for matched accounts
+          <select id="hideMode">
+            <option value="hide">Hide posts</option>
+            <option value="dim">Dim posts</option>
+            <option value="none">No visual filter</option>
+          </select>
+        </label>
+
+        <label class="stack">
+          Auto action
+          <select id="actionMode">
+            <option value="none">None</option>
+            <option value="mute">Auto mute</option>
+            <option value="block">Auto block</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="checks">
+        <label class="switch-row"><input type="checkbox" id="dryRun" /> Dry run mode (no real actions)</label>
+        <label class="switch-row"><input type="checkbox" id="strictWordMatch" /> Strict word match for single-word rules</label>
+        <label class="switch-row"><input type="checkbox" id="showReasonBadge" /> Show reason badge on dimmed posts</label>
+      </div>
+
+      <div class="grid-3">
+        <label class="stack">Max auto actions / hour
+          <input type="number" id="maxAutoActionsPerHour" min="0" max="100" step="1" />
+        </label>
+        <label class="stack">Delay between actions (ms)
+          <input type="number" id="actionDelayMs" min="500" max="30000" step="100" />
+        </label>
+        <label class="stack">Sightings before action
+          <input type="number" id="minSightingsBeforeAction" min="1" max="20" step="1" />
+        </label>
+      </div>
+
+      <p class="warning">Auto actions rely on UI automation and can break when X changes. Keep dry-run on while tuning.</p>
+    </section>
+
+    <section class="card">
+      <h2>3) Rule tester</h2>
+      <div class="grid-2">
+        <label class="stack">Test location text
+          <input type="text" id="testLocation" placeholder="Mumbai, India" />
+        </label>
+        <label class="stack">Test handle (optional)
+          <input type="text" id="testHandle" placeholder="example_user" />
+        </label>
+      </div>
+      <div class="inline-actions">
+        <button id="runMatcher">Run test</button>
+        <div id="matcherOutput" class="matcher-output">No test run yet.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>4) Runtime dashboard</h2>
+        <button id="refreshStats">Refresh</button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="metric"><span>Scanned</span><strong id="statScanned">0</strong></div>
+        <div class="metric"><span>Matched</span><strong id="statMatched">0</strong></div>
+        <div class="metric"><span>Hidden</span><strong id="statHidden">0</strong></div>
+        <div class="metric"><span>Dimmed</span><strong id="statDimmed">0</strong></div>
+        <div class="metric"><span>Muted</span><strong id="statMuted">0</strong></div>
+        <div class="metric"><span>Blocked</span><strong id="statBlocked">0</strong></div>
+        <div class="metric"><span>Cache hits</span><strong id="statCacheHits">0</strong></div>
+        <div class="metric"><span>Recent matches</span><strong id="statRecentCount">0</strong></div>
+      </div>
+      <p class="muted tiny">Last update: <span id="statLastUpdated">never</span></p>
+
+      <h3>Recent matches</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Handle</th>
+              <th>Location</th>
+              <th>Rule</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="recentMatchesBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5) Backup / restore</h2>
+      <div class="inline-actions">
+        <button id="exportSettings">Export settings JSON</button>
+        <button id="importSettingsBtn">Import settings JSON</button>
+      </div>
+      <textarea id="settingsBlob" placeholder="Settings JSON appears here for export/import"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>6) Data controls</h2>
+      <div class="inline-actions">
+        <button id="clearCache">Clear location cache</button>
+        <button id="clearStats">Reset stats</button>
+        <button id="clearActions">Clear action history</button>
+        <button id="clearRecent">Clear recent matches</button>
+      </div>
+    </section>
+
+    <footer class="footer-actions">
+      <button id="resetDefaults">Reset to defaults</button>
+      <button id="save" class="primary">Save settings</button>
+      <span id="status"></span>
+    </footer>
+  </main>
+
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>X Geo Filter Guard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>X Geo Filter Guard</h1>
+      <div id="statusBadge" class="badge">Active</div>
+    </header>
+
+    <label class="row"><input type="checkbox" id="enabled" /> Enabled</label>
+    <label class="row"><input type="checkbox" id="dryRun" /> Dry run</label>
+
+    <label class="stack">Post behavior
+      <select id="hideMode">
+        <option value="hide">Hide posts</option>
+        <option value="dim">Dim posts</option>
+        <option value="none">No visual filter</option>
+      </select>
+    </label>
+
+    <label class="stack">Auto action
+      <select id="actionMode">
+        <option value="none">None</option>
+        <option value="mute">Auto mute</option>
+        <option value="block">Auto block</option>
+      </select>
+    </label>
+
+    <div class="inline-actions">
+      <button id="pause30">Pause 30m</button>
+      <button id="resume">Resume</button>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="inline-actions">
+      <button id="openOptions">Open settings</button>
+      <button id="refresh">Refresh</button>
+    </div>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

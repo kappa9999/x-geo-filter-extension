@@ -1,0 +1,36 @@
+article.xgf-hidden {
+  display: none !important;
+}
+
+article.xgf-dimmed {
+  opacity: 0.32 !important;
+  transition: opacity 0.2s ease;
+}
+
+article.xgf-dimmed:hover {
+  opacity: 0.55 !important;
+}
+
+.xgf-note {
+  margin-top: 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #8b98a5;
+  border-left: 2px solid #536471;
+  padding-left: 8px;
+}
+
+.xgf-note strong {
+  color: #9ec7ff;
+}
+
+.xgf-flag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 4px;
+  font-size: 1em;
+  line-height: 1;
+  vertical-align: baseline;
+  opacity: 1;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
+}
