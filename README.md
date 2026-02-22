@@ -26,7 +26,7 @@ Examples:
 1. Open latest release:
    - https://github.com/kappa9999/x-geo-filter-extension/releases/latest
 2. Download:
-   - `x-geo-filter-extension-v0.2.2.zip`
+   - `x-geo-filter-extension-v0.2.3.zip`
 3. Unzip it (you should get folder `x-geo-filter-extension`)
 
 ---
@@ -40,6 +40,22 @@ Examples:
 5. Select the unzipped `x-geo-filter-extension` folder
 
 Done.
+
+---
+
+## Visual guide (with screenshots)
+
+- Popup UI: `docs/screenshots/popup.png`
+- Full settings page: `docs/screenshots/options-page.png`
+- Step-by-step with images: `docs/USAGE-WITH-IMAGES.md`
+
+### Popup preview
+
+![Popup UI](docs/screenshots/popup.png)
+
+### Settings preview
+
+![Settings page](docs/screenshots/options-page.png)
 
 ---
 
