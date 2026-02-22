@@ -26,7 +26,7 @@ Examples:
 1. Open latest release:
    - https://github.com/kappa9999/x-geo-filter-extension/releases/latest
 2. Download:
-   - `x-geo-filter-extension-v0.2.1.zip`
+   - `x-geo-filter-extension-v0.2.2.zip`
 3. Unzip it (you should get folder `x-geo-filter-extension`)
 
 ---

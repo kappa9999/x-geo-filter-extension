@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "X Geo Filter Guard",
   "description": "Filter X posts by profile location keywords, with QoL controls and optional auto-mute/block actions.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "permissions": ["storage"],
   "host_permissions": [
     "https://x.com/*",
