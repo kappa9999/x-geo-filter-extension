@@ -1,0 +1,33 @@
+X GEO FILTER GUARD - QUICK SETUP (NON-TECHNICAL)
+
+1) Download
+- Open: https://github.com/kappa9999/x-geo-filter-extension/releases/latest
+- Download: x-geo-filter-extension-v0.2.1.zip
+
+2) Unzip
+- Double-click the zip file
+- You should see a folder named: x-geo-filter-extension
+
+3) Install in Chrome
+- Open Chrome
+- Go to: chrome://extensions
+- Turn ON Developer mode (top-right)
+- Click: Load unpacked
+- Select folder: x-geo-filter-extension
+
+4) Basic setup
+- Click extension icon > Open settings
+- Add one include rule, for example: india
+- Set Post behavior: Dim
+- Set Auto action: None
+- Turn Dry run: On
+- Click Save settings
+
+5) Use
+- Open x.com
+- Refresh page and scroll
+
+If you install an update later:
+- Replace the old folder with the new one
+- Go to chrome://extensions
+- Click Reload on X Geo Filter Guard
